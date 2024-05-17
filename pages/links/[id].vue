@@ -1,16 +1,10 @@
 <template>
-  <div
-  >
-    <app-header/>
-    <main>
-      <slot />
-    </main>
-   <app-footer/>
+  <div>
+    page
   </div>
 </template>
 
 <script lang="ts" setup>
-
 
 </script>
 
