@@ -1,6 +1,8 @@
 <template>
   <!-- NuxtPage Composant par défaut donné par nuxt -->
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div class="max-w-7xl mx-auto">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
