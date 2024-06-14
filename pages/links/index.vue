@@ -3,8 +3,8 @@
         <nav class="flex justify-between items-center  mb-4 px-5 prose min-w-full">
             <h1 class="mb-0">Mes liens</h1>
             <div class="flex justify-between  gap-2">
-                <SearchInput :model-value="search" />
-                <!-- <SearchInput :model-value="search" @update:modelValue="$event => search = $event" /> -->
+                <!-- <SearchInput :model-value="search" /> -->
+                <SearchInput :model-value="search" @update:modelValue="$event => search = $event" />
                 <NuxtLink class="no-underline px-4 py-2 bg-emerald-400 text-white rounded-md text-sm hover:bg-emerald-500 transition-all ease-in-out duration-300 flex items-center" to="/links/create">Créer un lien</NuxtLink>
             </div>
         </nav>
@@ -52,6 +52,8 @@
                             </tr>
                         </tbody>
                     </table>
+                    <p>{{  search }}</p>
+                    
                 </div>
                 <div v-else class="flex flex-col gap-3">
                     <Icon name="mdi:loading" class="animate-spin text-emerald-400"/>
@@ -68,7 +70,11 @@
 </template>
 
 <script lang="ts" setup>
-const search = ref();
+
+definePageMeta({
+    middleware: ['auth']
+})
+const search = ref<string>('');
     const links = [
     {
       short_links:"6sfsdg",
