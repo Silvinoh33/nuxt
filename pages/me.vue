@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="user">
     <!-- <pre>{{ data }}</pre> -->
     <p> <strong>Nom d'utilisateur</strong> :{{ user.name }}</p>
     <p> <strong>Email</strong>:{{ user.email }}</p>
@@ -7,20 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-  import axios from 'axios';
-
   definePageMeta({
-      middleware: ['auth']
-  })
-  
-
-  const {data: user} = await axios.get("/user");
-  // onMounted(async () => {
-
-  // console.log({data: data.value});
-  // });
-  
+    middleware: ['auth']
+});
+const {user} = useAuth();
 </script>
 
 <style>

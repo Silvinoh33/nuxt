@@ -70,31 +70,38 @@
 </template>
 
 <script lang="ts" setup>
+import axios from "axios";
 
+
+/**
+ * Définit les métadonnées de la page actuelle, nécessitant l'application d'un middleware d'authentification.
+ */
 definePageMeta({
-    middleware: ['auth']
-})
+  middleware: ["auth"],
+});
+const {data} = await axios.get("/links");
+const links = data.data;
 const search = ref<string>('');
-    const links = [
-    {
-      short_links:"6sfsdg",
-      full_links:"https://youtube.com",
-      views:3,
-      id:1,
-    },
-    {
-      short_links:"1sdfsdg",
-      full_links:"https://w3schools.com",
-      views:1,
-      id:2,
-    },
-    {
-      short_links:"234sefsfsd",
-      full_links:"https://devdocs.com",
-      views:0,
-      id:3,
-    },
-  ]
+//     const links = [
+//     {
+//       short_links:"6sfsdg",
+//       full_links:"https://youtube.com",
+//       views:3,
+//       id:1,
+//     },
+//     {
+//       short_links:"1sdfsdg",
+//       full_links:"https://w3schools.com",
+//       views:1,
+//       id:2,
+//     },
+//     {
+//       short_links:"234sefsfsd",
+//       full_links:"https://devdocs.com",
+//       views:0,
+//       id:3,
+//     },
+//   ]
 </script>
 
 <style>

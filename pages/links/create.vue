@@ -4,49 +4,48 @@
       <h1>Créer un nouveau lien</h1>
       <Goback>ou revenir en arrrière</Goback>
 
+      <div class="flex items-center w-[200%] p-5 shadow-inner rounded-md">
+        <div class="">
+          <img src="../../assets/images/ff.png" />
+        </div>
+        <form class="w-1/2" @submit.prevent="login(form)">
+          <input
+            v-model="form.url_name"
+            name="full_link"
+            type="url"
+            placeholder="entrer le lien au complet"
+          />
+          <!-- <input v-model="form.url_name" name="full_link" type="text" placeholder="centrer le lien court"> -->
 
-      <div>
-        <form @submit.prevent="login(form)">
-      <label >
-        Nom du lien
-        <input v-model="form.url_name" type="text" placeholder="entrer le nom du lien">
-      </label>
-      <label >
-        url
-        <input v-model="form.url" type="text" placeholder="entrer l'url">
-      </label>
-      <div>
-        <button class="btn mt-12" >Créer le lien</button>
-      </div>
-    </form>
+          <div>
+            <button class="btn mt-12">Créer le lien</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import axios from 'axios';
+import axios from "axios";
 
 definePageMeta({
-    middleware: ['auth']
-})
+  middleware: ["auth"],
+});
 
 interface urlPayload {
   url_name: string;
   url: string;
-  }
+}
 
-  const form = ref<urlPayload>({
-    url_name: '',
-    url: '',
-  });
+const form = ref<urlPayload>({
+  url_name: "",
+  url: "",
+});
 
-  async function login(payload: urlPayload){
-   console.log(payload);
-   
-  }
+async function login(payload: urlPayload) {
+  console.log(payload);
+}
 </script>
 
-<style>
-
-</style>
+<style></style>
