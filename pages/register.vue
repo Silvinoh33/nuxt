@@ -35,7 +35,6 @@
 </template>
 
 <script lang="ts" setup>
-import { RegisterPayload } from '@types';
 
   definePageMeta({
     layout:'centered',
@@ -43,15 +42,15 @@ import { RegisterPayload } from '@types';
   });
 
   
-  const {register} = useAuth();
   
-  const form = ref<RegisterPayload>({
+  const form = ({
     name: '',
     email: '',
     password: '',
     password_confirmation: ''
   });
   
+  const {register} = useAuth();
 
 
   

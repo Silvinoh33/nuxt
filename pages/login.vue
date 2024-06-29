@@ -21,37 +21,35 @@
   <!-- <FormKit type="form" submit-label="Se connecter" @submit="login" class="space-y-8">
     <FormKit type ="email" label="Email" name="email"/>
     <FormKit type="password" label="Mot de passe" name="password"/>
+   
   </FormKit> -->
+  <div>
+      
+      </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import type { LoginPayload } from '@types';
+// import type { LoginPayload } from '@types';
 const isclick = ref(false);
   definePageMeta({
     layout:'centered',
     middleware: ['guest'],
   })
 
-  const form = ref<LoginPayload>({
+  const form = ({
     email: '',
     password: '',
   });
 
   function isclickMeth(){
-    if (form.value.email !== null && form.value.password !== null) {
+    if (form.email !== null && form.password !== null) {
       isclick.value = !isclick.value;
     }
   }
 
 const { login} = useAuth();
 
-
-
-  // async function login(payload: LoginPayload){
-  //  await axios.post('/login', payload);
-  //  useRouter().push('/me');
-  // }
 </script>
 
 <style >
